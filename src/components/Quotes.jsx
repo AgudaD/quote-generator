@@ -9,13 +9,21 @@ const Quotes = () => {
   }, []);
 
   const getQuote = () => {
-    let url =
-      `https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json`;
+    let url = `https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json`;
 
     fetch(url)
-      .then(res => res.json())
-      .then((data) => console.log(data.quotes));
+      .then((res) => res.json())
+      .then((data) => {
+        let dataQuotes = data.quotes;
+        let randomNum = Math.floor(Math.random() * dataQuotes.length);
+        let randomQuote = dataQuotes[randomNum]
+        setQuote(randomQuote.quote)
+      });
   };
+
+  const handleClick = () => {
+    getQuote();
+  }
 
   return (
     <div className="max-w-[50rem] space-y-4 rounded-md bg-white px-12 py-6 shadow-xl drop-shadow-lg">
@@ -30,7 +38,7 @@ const Quotes = () => {
       </div>
 
       <div className="mx-auto w-[10rem] cursor-pointer">
-        <button className="rounded border-2 border-black px-6 py-1.5 hover:bg-gray-100">
+        <button className="rounded border-2 border-black px-6 py-1.5 hover:bg-gray-100" onClick={handleClick}>
           New Quote
         </button>
       </div>
