@@ -28,15 +28,15 @@ const Quotes = () => {
 
   return (
     <div className="max-w-[50rem] rounded-md bg-white px-12 py-6 shadow-xl drop-shadow-lg">
-      <div className="leading-6 tracking-wide">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore pariatur vero ipsa officiis sapiente nostrum magni aliquam numquam odit quidem culpa, voluptatibus odio eius non eveniet perspiciatis, voluptate, cumque officia!
+      <div className="text-xl font-semibold leading-6 tracking-wide">
+        {quote}
       </div>
-      <div className="text-end mt-5">
-        <p>lore</p>
+      <div className="text-end text-lg font-medium italic mt-5">
+        <p>~{author}</p>
       </div>
 
       <div className="mx-auto w-[10rem] cursor-pointer mt-12">
-        <button className="rounded border-2 border-black px-6 py-1.5 hover:bg-gray-100" onClick={handleClick}>
+        <button className="rounded border-2 border-black px-6 py-1.5 hover:bg-gray-200" onClick={handleClick}>
           New Quote
         </button>
       </div>
