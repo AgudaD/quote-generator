@@ -18,6 +18,7 @@ const Quotes = () => {
         let randomNum = Math.floor(Math.random() * dataQuotes.length);
         let randomQuote = dataQuotes[randomNum]
         setQuote(randomQuote.quote)
+        setAuthor(randomQuote.author)
       });
   };
 
@@ -28,13 +29,10 @@ const Quotes = () => {
   return (
     <div className="max-w-[50rem] space-y-4 rounded-md bg-white px-12 py-6 shadow-xl drop-shadow-lg">
       <div className="leading-6 tracking-wide">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-        maxime dolor expedita illum inventore dolores aliquam, eligendi hic,
-        perferendis accusantium ullam voluptates quas dolorem doloribus rerum
-        praesentium corporis qui voluptas.
+        {quote}
       </div>
       <div className="text-end">
-        <p>John Doe</p>
+        <p>{author}</p>
       </div>
 
       <div className="mx-auto w-[10rem] cursor-pointer">
